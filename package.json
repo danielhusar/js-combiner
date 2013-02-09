@@ -1,0 +1,39 @@
+{
+  "name": "js-combiner",
+  "version": "1.0.0",
+  "description": "An assets combine and minify tool",
+  "keywords": [
+    "assets",
+    "asset",
+    "combine",
+    "minify",
+    "packer",
+    "compressor",
+    "compress"
+  ],
+  "author": {
+    "name": "Daniel Husár",
+    "email": "dano.husar@gmail.com"
+  },
+  "dependencies": {
+    "uglify-js": "2.2.3",
+    "underscore" : ">=1.1.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielhusar/js-combiner.git"
+  },
+  "main": "index",
+  "engines": [
+    "node >= 0.8.0"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://en.wikipedia.org/wiki/MIT_License"
+    }
+  ],
+  "readmeFilename": "Readme.md",
+  "_id": "js-combiner@1.0.0",
+  "_from": "js-combiner"
+}
