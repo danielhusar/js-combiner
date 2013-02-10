@@ -41,7 +41,7 @@ Combiner settings:
 	'cwd'          : process.cwd(),  //current working directory
 	'vars'         : {}              //extra variables to put into client js file
 }
-```javascript
+```
 
 You can also pass custom variables inside vars property, like:
 ```javascript
