@@ -9,7 +9,9 @@
     "minify",
     "packer",
     "compressor",
-    "compress"
+    "compress",
+    "client",
+    "variables"
   ],
   "author": {
     "name": "Daniel Husár",

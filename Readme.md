@@ -8,6 +8,11 @@ An assets combine and minify tool
 
 Js-combiner is a simple tool to combine and minify javascript files. It can also share server side variables to client side js files.
 
+## Installation
+Download and place it inside node_moudles.
+Or use npm: npm install js-combiner.
+Tested only under express.
+
 # Usage
 
 file: app.js
