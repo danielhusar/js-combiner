@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Js-combiner by danielhusar</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/danielhusar/js-combiner">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/danielhusar/js-combiner/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/danielhusar/js-combiner/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Js-combiner</h1>
+          <p>node.js client site javascript minify and combiner tool</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/danielhusar">danielhusar</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>js-combiner</h1>
+
+<p>An assets combine and minify tool</p>
+
+<h2>Description</h2>
+
+<p>Js-combiner is a simple tool to combine and minify javascript files. It can also share server side variables to client side js files.</p>
+
+<h2>Installation</h2>
+
+<p>Download and place it inside node_moudles.
+Or use npm: npm install js-combiner.
+Tested only under express.</p>
+
+<h1>Usage</h1>
+
+<p>file: app.js</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">combiner</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'js-combiner'</span><span class="p">)(</span>
+            <span class="p">{</span>
+                <span class="s1">'files'</span> <span class="o">:</span> <span class="p">[</span><span class="s1">'/bundle.js'</span><span class="p">]</span>
+            <span class="p">});</span>
+</pre></div>
+
+<p>file: /public.js/bundle.js</p>
+
+<div class="highlight"><pre><span class="nx">require</span><span class="p">(</span><span class="s1">'/app.js'</span><span class="p">);</span>
+<span class="nx">require</span><span class="p">(</span><span class="err">/config.js);    </span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">'/events.js'</span><span class="p">)</span>
+<span class="nx">require</span><span class="p">(</span><span class="s2">"/global.js"</span><span class="p">);</span>
+</pre></div>
+
+<p>New generated file with all the content will be: /public.js/packed/bundle.packed.js</p>
+
+<p>Combiner settings:</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="s1">'files'</span>        <span class="o">:</span> <span class="p">[],</span>             <span class="c1">//array of files where search for reauire directives</span>
+    <span class="s1">'minify'</span>       <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>          <span class="c1">//minify the whole files</span>
+    <span class="s1">'reload'</span>       <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>          <span class="c1">//recreate file when theres some change in required files</span>
+    <span class="s1">'log'</span>          <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>          <span class="c1">//output logs</span>
+    <span class="s1">'packedSuffix'</span> <span class="o">:</span> <span class="s1">'packed'</span><span class="p">,</span>       <span class="c1">//suffix of the new recreated file</span>
+    <span class="s1">'packedFolder'</span> <span class="o">:</span> <span class="s1">'packed'</span><span class="p">,</span>       <span class="c1">//folder where to put packed files</span>
+    <span class="s1">'folder'</span>       <span class="o">:</span> <span class="s1">'/public/js'</span><span class="p">,</span>   <span class="c1">//folder where are the js files located</span>
+    <span class="s1">'cwd'</span>          <span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">(),</span>  <span class="c1">//current working directory</span>
+    <span class="s1">'vars'</span>         <span class="o">:</span> <span class="p">{}</span>              <span class="c1">//extra variables to put into client js file</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>You can also pass custom variables inside vars property, like:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">combiner</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'js-combiner'</span><span class="p">)(</span>
+            <span class="p">{</span>
+                <span class="s1">'files'</span> <span class="o">:</span> <span class="p">[</span><span class="s1">'/bundle.js'</span><span class="p">],</span>
+                <span class="s1">'vars'</span>  <span class="o">:</span> <span class="p">{</span>
+                    <span class="s1">'ENV'</span> <span class="o">:</span> <span class="s1">'production'</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+</pre></div>
+
+<p>And than acces this variable inside client js files by calling: ${vars.ENV}</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
