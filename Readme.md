@@ -36,7 +36,7 @@ New generated file with all the content will be: /public.js/packed/bundle.packed
 Combiner settings:
 ```javascript
 {
-	'files'        : [],             //array of files where search for reauire directives
+	'files'        : [],             //array of files where search for require directives
 	'minify'       : false,          //minify the whole files
 	'reload'       : false,          //recreate file when theres some change in required files
 	'log'          : false,          //output logs
