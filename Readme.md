@@ -23,7 +23,7 @@ var combiner = require('js-combiner')(
 			});
 ```
 
-file: /public.js/bundle.js
+file: /public/bundle.js
 ```javascript
 require('/app.js');
 require(/config.js);    
