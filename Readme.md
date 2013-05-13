@@ -31,7 +31,7 @@ require('/events.js')
 require("/global.js");
 ```
 
-New generated file with all the content will be: /public.js/packed/bundle.packed.js
+New generated file with all the content will be: /public/packed/bundle.packed.js
 
 Combiner settings:
 ```javascript
