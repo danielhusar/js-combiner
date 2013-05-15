@@ -25,8 +25,7 @@ var combiner = require('js-combiner')(
 
 file: /public/bundle.js
 ```javascript
-require('/app.js');
-require(/config.js);    
+require('/app.js');   
 require('/events.js')
 require("/global.js");
 ```
@@ -58,6 +57,6 @@ var combiner = require('js-combiner')(
 				}
 			});
 ```
-And than acces this variable inside client js files by calling: ${vars.ENV}
+And than acces this variable inside client js files by calling: ${ENV}
 
 
